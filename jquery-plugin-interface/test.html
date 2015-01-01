@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>jQuery Plugin Interface Tester</title>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<script type="text/javascript" src="jquery-1.11.2.js"></script>
+<script type="text/javascript" src="jquery_plugin_interface.js"></script>
+
+<script type="text/javascript">
+
+    var myPlugin = new Plugin({
+
+        name : 'danPlugin',
+
+        defaults : {
+            'bgcolor' : 'red'
+        },
+
+        initialize : function(opts) {
+            this.defaults.bgcolor = opts.bgcolor || this.defaults.bgcolor;
+        },
+
+        methods : {
+
+            public : {
+                changeBg : function() {
+                    this.methods.private.changeBg(this.$el);
+                }
+            },
+
+            private : {
+                changeBg : function($el) {
+                    $el.css('background-color', this.defaults.bgcolor);
+                }
+            }
+
+        }
+
+    });
+
+    var ok = myPlugin.create();
+
+    $("body").danPlugin({
+        bgcolor : '#000'
+    });
+
+    $("body").danPlugin('changeBg');
+
+</script>
+
+</body>
+</html>
