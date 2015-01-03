@@ -13,6 +13,18 @@
                     "type" : "date-time"
                 }
             }
+        },
+        "region" : {
+            "attributes" : {
+                "fullName" : {
+                    "column" : "birth_date",
+                    "type" : "string"
+                },
+                "regionCode" : {
+                    "column" : "birth_date",
+                    "type" : "string"
+                }
+            }
         }
     }
 }
