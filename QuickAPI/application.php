@@ -25,9 +25,11 @@ class Application {
 
     private function initialize() {
 
+        define('NAMESPACE_SEPARATOR', '\\');
+
         /* Autoloader */
         require_once($this->configuration->appPath . DIRECTORY_SEPARATOR . 'Core/Autoloader.php');
-        $autoloader = new \SplClassLoader('E2', $this->configuration->appPath . DIRECTORY_SEPARATOR . '..');
+        $autoloader = new \SplClassLoader('QuickAPI', $this->configuration->appPath . DIRECTORY_SEPARATOR . '..');
         $autoloader->register();
 
         /* Router */
@@ -64,20 +66,16 @@ class Application {
             if ($directive->isSystemTask()) {
 
                 $worker = new Core\System($this->assets['provider']);
-                $actionId = $directive->getActionId();
-
-                $data = $worker->$actionId($directive);
-                $this->assets['buffer']->setData($data);
 
             } else {
 
                 $worker = new Core\Worker($this->assets['provider']);
-                $actionId = $directive->getActionId();
-
-                $data = $worker->$actionId($directive);
-                $this->assets['buffer']->setData($data);
 
             }
+
+            $actionId = $directive->getActionId();
+            $data = $worker->$actionId($directive);
+            $this->assets['buffer']->setData($data);
 
         }
 
