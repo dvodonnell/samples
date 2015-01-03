@@ -1,0 +1,18 @@
+{
+    "action" : [
+        "find", "get", "save"
+    ],
+    "system" : [
+        "login", "logout", "register", "ping"
+    ],
+    "contentType" : {
+        "person" : {
+            "attributes" : {
+                "birthDate" : {
+                    "column" : "birth_date",
+                    "type" : "date-time"
+                }
+            }
+        }
+    }
+}
