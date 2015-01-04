@@ -92,13 +92,6 @@ class MySQL implements Core\CoreInterface\Provider {
 
     /*system*/
 
-    public function createOrg($data) {
-
-        $this->db->insert('organization', $data);
-        return $this->db->getInsertId();
-
-    }
-
     public function createUser($data) {
 
         $this->db->insert('user', $data);
@@ -120,21 +113,6 @@ class MySQL implements Core\CoreInterface\Provider {
         $result = $this->db->rawQuery($sql, array($email));
 
         return (!empty($result));
-
-    }
-
-    public function getOrg($id) {
-
-        $sql = "
-
-        SELECT organization.* FROM organization
-        LEFT JOIN entity_region ON entity_region.entity = organization.region
-        LEFT JOIN entity_industry ON entity_industry.entity = organization.industry
-        WHERE organization.id = ?
-
-        ";
-
-        return $this->db->rawQuery($sql, array($id));
 
     }
 

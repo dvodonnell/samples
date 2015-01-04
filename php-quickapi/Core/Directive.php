@@ -1,6 +1,7 @@
 <?php
 
 namespace QuickAPI\Core;
+use QuickAPI\Core;
 
 class Directive {
 
@@ -41,7 +42,7 @@ class Directive {
         $this->valid = false;
     }
 
-    public function setSession($session) {
+    public function setSession(Core\Session $session) {
         $this->session = $session;
     }
 

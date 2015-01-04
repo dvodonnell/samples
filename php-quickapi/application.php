@@ -17,8 +17,9 @@ class Application {
 
     public function __construct($configuration = array()) {
 
+        $this->massageConfig($configuration);
         $this->configuration = $configuration;
-        $this->massageConfig();
+
         $this->initialize();
 
     }
@@ -48,9 +49,9 @@ class Application {
 
     }
 
-    public function massageConfig() {
+    private function massageConfig(&$configuration) {
 
-        $this->configuration['provider'] = (!empty($this->configuration['provider'])) ? $this->configuration['provider'] : 'MySQL';
+        $configuration['provider'] = (!empty($configuration['provider'])) ? $configuration['provider'] : 'MySQL';
 
     }
 
@@ -75,6 +76,7 @@ class Application {
 
             $actionId = $directive->getActionId();
             $data = $worker->$actionId($directive);
+
             $this->assets['buffer']->setData($data);
 
         }

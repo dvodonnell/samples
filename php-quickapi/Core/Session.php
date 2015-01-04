@@ -36,7 +36,6 @@ Class Session {
     public function authenticate($email, $password) {
 
         $this->loadUser();
-        $this->loadClient();
 
     }
 
@@ -49,25 +48,12 @@ Class Session {
         $this->user = $user;
     }
 
-    public function setOrganization($org) {
-        $_SESSION[SESSION_NAMESPACE]['organization'] = $org->output();
-        $this->organization = $org;
-    }
-
     public function loadUser() {
         $this->user = new Core\User($_SESSION[SESSION_NAMESPACE]['user']);
     }
 
-    public function loadOrganization() {
-        $this->organization = new Core\Organization($_SESSION[SESSION_NAMESPACE]['organization']);
-    }
-
     public function getUser() {
         return (isset($this->user) ? $this->user : false);
-    }
-
-    public function getOrganization() {
-        return (isset($this->organization) ? $this->organization : false);
     }
 
     public function getState() {
