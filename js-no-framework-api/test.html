@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>API Tester</title>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<script type="text/javascript" src="api.js"></script>
+
+<script type="text/javascript">
+
+    var myApi = new Api({
+        'url' : 'http://someserver.com'
+    });
+
+    var results = myApi.find('apples', {
+        'size' : 'big'
+    });
+
+    results.done(function(applesCollection){
+
+        applesCollection.each(function(apple){
+            console.log(apple.get('type'));
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
