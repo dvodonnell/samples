@@ -17,6 +17,19 @@ An extremely modular, abstract, and incomplete API framework written in PHP. Aim
 dependence via a JSON configuration (data types, actions, etc.) and uses a Entity-Worker pattern.
 
 
+Framework-Free JS Api (JS)
+----------------------------
+
+A UMD-compatible module that generically defines a set of API methods, returns objects as entities, and defines its own
+deferreds and promises
+
+
+PHP Dependency Loading (PHP)
+----------------------------
+
+PSR-0 compatible dependency injection in PHP
+
+
 Source Extraction Suite (IDL)
 -----------------------------
 
