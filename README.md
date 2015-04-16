@@ -33,5 +33,6 @@ PSR-0 compatible dependency injection in PHP
 Source Extraction Suite (IDL)
 -----------------------------
 
-Comprehensive PSF-generation, source-finding and PSF-fitting code. In a very rough state at the moment,
-maybe I'll re-organize it some weekend.
+WARNING, this code is in a very rough state, was written many many years ago before I developed many of my coding chops.
+However, it's still here because from a theory point of view, I'm still very proud of what it does :). Maybe I'll
+clean it up and give it back to the astrophysics community some day.
