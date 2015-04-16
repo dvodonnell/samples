@@ -16,6 +16,8 @@ QuickAPI (PHP)
 An extremely modular, abstract, and incomplete API framework written in PHP. Aims to take in 100% of its contextual
 dependence via a JSON configuration (data types, actions, etc.) and uses a Entity-Worker pattern.
 
+Note that this has sort of evolved in to this work in progress: [BrassTacks PHP](https://github.com/dvocreative/brasstacks-php/tree/master/src/BrassTacks)
+
 
 Framework-Free JS Api (JS)
 ----------------------------
